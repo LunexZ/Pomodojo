@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodojo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;0,500;0,600;0,700;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="pomodoro.js" defer></script>
+</head>
+<header>
+
+</header>
+
+<body>
+    <main id="main-grid">
+        <section id="main-content">
+            <h1 class="title">Pomdojo</h1>
+
+            <h3 class="modeHeader"> welcome! </h3>
+
+            <div class="timer">00:25 </div>
+
+            <div class="controls">
+                <button type="button" id="start-button">start</button>
+                <button type="button" id="skip-button">skip</button>
+            </div>
+
+        </section>
+
+        <section id="timeSetting">
+            <div class="setStudy" id="minSet">
+                min/study
+                <div>
+                    <input type="number" value="25" maxlength="2" min="0" placeholder="--" id="studyInput"
+                        name="studyInput" />
+                </div>
+            </div>
+            <div class="setBreak" id="minSet">
+                min/break
+                <div>
+                    <input type="number" value="5" maxlength="2" min="0" placeholder="--" id="breakInput"
+                        name="breakInput" />
+                </div>
+            </div>
+        </section>
+
+        </div>
+    </main>
+
+</body>
+
+</html>
