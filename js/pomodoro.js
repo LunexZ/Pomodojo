@@ -28,8 +28,12 @@ class PomodoroTimer {
     }
 
     formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
+        const hours = Math.floor(seconds / (60 * 60));
+        const mins = Math.floor((seconds % 3600) / 60);
         const secs = seconds % 60;
+        if (hours > 0) {
+            return `${hours.toString()}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
+        }
         return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
     }
 
@@ -75,25 +79,15 @@ class PomodoroTimer {
     }
 
     showPopup(message) {
-        // Create a popup element
-        const popup = document.createElement("div");
-        popup.textContent = message;
+        // Clone the popup template
+        const template = document.querySelector("#popup-template");
+        const popup = template.cloneNode(true);
+        popup.classList.remove("hidden");
 
-        // Style the popup
-        popup.style.position = "fixed";
-        popup.style.bottom = "20px";
-        popup.style.left = "50%";
-        popup.style.transform = "translateX(-50%)";
-        popup.style.padding = "10px 20px";
-        popup.style.backgroundColor = "var(--error)";
-        popup.style.color = "white";
-        popup.style.borderRadius = "5px";
-        popup.style.boxShadow = "0px 4px 6px rgba(0,0,0,0.1)";
-        popup.style.fontFamily = "Arial, sans-serif";
-        popup.style.fontSize = "14px";
-        popup.style.zIndex = "1000";
+        // Set the message
+        popup.querySelector(".popup-message").textContent = message;
 
-        // Add the popup to the body
+        // Append to the body
         document.body.appendChild(popup);
 
         // Remove the popup after 3 seconds
@@ -101,6 +95,8 @@ class PomodoroTimer {
             popup.remove();
         }, 3000);
     }
+
+
 
     flashInvalidInput(element) {
         // Temporarily set text color to red

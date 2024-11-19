@@ -1,0 +1,16 @@
+/* variables.css */
+:root {
+    --primary: #3c3e41;
+    --dark: #2c2e31;
+    --text: #fffffc;
+    --secondary: #ffde68;
+    --breakbar: #82f9f3;
+    --error: #ef5d5d;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

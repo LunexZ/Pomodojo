@@ -1,0 +1,133 @@
+@import url('./variables.css');
+
+/* ========== Popup Styles ========== */
+
+/* Outer Popup Container */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: var(--error);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 1000;
+    width: auto;
+    max-width: 90%;
+    opacity: 0;
+    /* Start hidden */
+    animation: slideUpDown 3s ease-in-out;
+    /* Slide and fade animation */
+}
+
+/* Inner Popup Content for Flexbox Layout */
+.popup-content {
+    display: flex;
+    align-items: center;
+    /* Vertically center items */
+    gap: 10px;
+    /* Space between icon and text */
+}
+
+/* Popup Icon */
+.popup-error {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+}
+
+/* Popup Message */
+.popup-message {
+    flex: 1;
+    /* Allow message to take up remaining space */
+    text-align: left;
+    /* Align text to the left */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    overflow: hidden;
+    /* Prevent overflowing text */
+    text-overflow: ellipsis;
+    /* Add ellipsis for long text */
+}
+
+/* Slide-Up-Down Animation */
+@keyframes slideUpDown {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+        /* Start off the screen */
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        /* Fully visible at normal position */
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        /* Stay fully visible */
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+        /* Slide back down */
+    }
+}
+
+/* Hidden by Default */
+.hidden {
+    display: none;
+}
+
+
+/* Popup Icon */
+.popup-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Fade Animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
