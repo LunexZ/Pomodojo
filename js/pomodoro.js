@@ -99,13 +99,12 @@ class PomodoroTimer {
 
 
     flashInvalidInput(element) {
-        // Temporarily set text color to red
-        const originalColor = getComputedStyle(element).color;
-        element.style.color = "var(--error)";
+        // Add the error-flash class
+        element.classList.add("error-flash");
 
-        // Reset color after 1 second
+        // Remove the class after 1 second
         setTimeout(() => {
-            element.style.color = originalColor;
+            element.classList.remove("error-flash");
         }, 1000);
     }
     resetTimer(duration) {

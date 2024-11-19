@@ -1,46 +1,43 @@
-/* ========== Reset and Variables ========== */
-:root {
-    --primary: #3c3e41;
-    --dark: #2c2e31;
-    --text: #fffffc;
-    --secondary: #ffde68;
-    --breakbar: #82f9f3;
-    --error: #ef5d5d;
-}
+/* ================= Import Global Variables ================= */
+@import url('./variables.css');
 
-
+/* ================= Global Styles ================= */
 body {
     background: var(--primary);
     color: var(--text);
 }
 
+/* ================= Grid Layout ================= */
 #main-grid {
     display: grid;
     grid-gap: 1;
+    /* Space between grid items */
     grid-template-columns: 1fr 1fr 1.25fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     margin: 0rem auto;
     gap: 1rem;
 }
 
+/* ================= Main Content Styling ================= */
 #main-content {
     text-align: center;
     background-color: var(--dark);
     width: 100%;
     grid-column: 3;
-    grid-row: 2/5;
+    grid-row: 2 / 5;
+    /* Spans rows 2 through 4 */
     border-radius: 1rem;
     font-family: "Roboto Mono", monospace;
     margin: auto;
     padding-bottom: 4rem;
     padding-top: 2rem;
-
 }
 
 .timer {
     font-size: 3rem;
 }
 
+/* ================= Controls ================= */
 .controls {
     display: flex;
     justify-content: center;
@@ -50,21 +47,21 @@ body {
     background-color: var(--primary);
     color: white;
     border: none;
-    padding: .5rem 1rem;
-    border-radius: .5rem;
-    margin: -1;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    /* Adjusted from -1 to 0 */
 }
 
 .controls button:hover {
     color: var(--secondary);
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
-
 }
 
-
+/* ================= Time Setting ================= */
 #timeSetting {
     grid-column: 2;
-    grid-row: 2 /4;
+    grid-row: 2 / 4;
 
     width: 40%;
     max-width: 400px;
@@ -82,6 +79,21 @@ body {
     row-gap: 0.5rem;
 }
 
+/* Hover Styling for Inputs */
+#timeSetting div input:hover {
+    color: var(--secondary);
+    transition: color 0.25s ease-in-out;
+    /* Ensure smooth transitions */
+}
+
+/* Flash Error Styling for Inputs */
+.error-flash {
+    color: var(--error) !important;
+    /* Ensure flash red overrides other styles */
+    transition: color 0.25s ease-in-out;
+}
+
+/* ================= Time Setting Inputs ================= */
 .setStudy {
     grid-column: 1;
     grid-row: 1;
@@ -92,13 +104,14 @@ body {
     grid-row: 2;
 }
 
-
+/* Remove Spinner Buttons in Number Inputs */
 #minSet div input::-webkit-inner-spin-button,
 #minSet div input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
+/* Styling for Time Setting Input Container */
 #minSet div {
     display: block;
     margin: 0.5rem auto auto auto;
@@ -106,153 +119,18 @@ body {
     /* Scales with viewport width */
 }
 
+/* Styling for Inputs */
 #minSet div input {
     all: unset;
 
     display: block;
     margin: 0.5rem auto;
     font-size: calc(1.4rem + 1vw);
-    /* Scales with viewport width */
     width: 80%;
     text-align: center;
     background: none;
-    transition-duration: 250ms;
-    transition-timing-function: ease-in-out;
-}
-
-
-#minSet div input:hover {
-    color: var(--secondary);
-}
-
-/* ========== Popup Styles ========== */
-
-/* Outer Popup Container */
-.popup {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: var(--error);
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    z-index: 1000;
-    width: auto;
-    max-width: 90%;
-    opacity: 0;
-    /* Start hidden */
-    animation: slideUpDown 3s ease-in-out;
-    /* Slide and fade animation */
-}
-
-/* Inner Popup Content for Flexbox Layout */
-.popup-content {
-    display: flex;
-    align-items: center;
-    /* Vertically center items */
-    gap: 10px;
-    /* Space between icon and text */
-}
-
-/* Popup Icon */
-.popup-error {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    /* Prevent icon from shrinking */
-}
-
-/* Popup Message */
-.popup-message {
-    flex: 1;
-    /* Allow message to take up remaining space */
-    text-align: left;
-    /* Align text to the left */
-    white-space: nowrap;
-    /* Prevent text wrapping */
-    overflow: hidden;
-    /* Prevent overflowing text */
-    text-overflow: ellipsis;
-    /* Add ellipsis for long text */
-}
-
-/* Slide-Up-Down Animation */
-@keyframes slideUpDown {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100px);
-        /* Start off the screen */
-    }
-
-    10% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-        /* Fully visible at normal position */
-    }
-
-    90% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-        /* Stay fully visible */
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100px);
-        /* Slide back down */
-    }
-}
-
-/* Hidden by Default */
-.hidden {
-    display: none;
-}
-
-
-/* Popup Icon */
-.popup-icon {
-    width: 24px;
-    height: 24px;
-}
-
-/* Fade Animation */
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+    color: inherit;
+    /* Use inherited color to avoid reset conflicts */
+    transition: color 0.25s ease-in-out;
+    /* Smooth transition for hover and error */
 }
