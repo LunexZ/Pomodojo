@@ -1,136 +1,147 @@
 /* ================= Import Global Variables ================= */
+/* Import shared variables for colors and typography */
 @import url('./variables.css');
 
 /* ================= Global Styles ================= */
+/* General styles for the body */
 body {
     background: var(--primary);
     color: var(--text);
+    font-family: "Roboto Mono", monospace;
+    margin: 0;
+    padding: 0;
 }
 
 /* ================= Grid Layout ================= */
+/* Main grid layout for the application */
 #main-grid {
     display: grid;
-    grid-gap: 1;
-    /* Space between grid items */
-    grid-template-columns: 1fr 1fr 1.25fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    margin: 0rem auto;
-    gap: 1rem;
+    grid-gap: 1rem; /* Space between grid items */
+    grid-template-columns: 1fr 1fr 1.25fr 1fr 1fr; /* Column distribution */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; /* Row distribution */
+    margin: 0 auto; /* Center the grid */
 }
 
 /* ================= Main Content Styling ================= */
+/* Styling for the central content section */
 #main-content {
-    text-align: center;
+    grid-column: 3; /* Position in the grid */
+    grid-row: 2 / 5; /* Spans rows 2 through 4 */
     background-color: var(--dark);
-    width: 100%;
-    grid-column: 3;
-    grid-row: 2 / 5;
-    /* Spans rows 2 through 4 */
     border-radius: 1rem;
-    font-family: "Roboto Mono", monospace;
+
+    width: 100%; /* Full width of parent */
+    min-width: 12rem; /* Minimum width for responsiveness */
+    height: 100%; /* Full height of parent */
+
     margin: auto;
-    padding-bottom: 4rem;
-    padding-top: 2rem;
+    padding: 2rem 0 4rem; /* Padding for top and bottom */
+    text-align: center; /* Center text */
+    font-size: 1.3rem; /* Adjust font size for scaling */
 }
 
+/* Timer display */
 .timer {
-    font-size: 3rem;
+    font-size: 3rem; /* Large text for timer */
 }
 
 /* ================= Controls ================= */
+/* Styling for control buttons */
 .controls {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center buttons horizontally */
 }
 
+/* Individual button styles */
 .controls button {
     background-color: var(--primary);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    margin: 0;
-    /* Adjusted from -1 to 0 */
+    margin: 0; /* Remove default margin */
+    transition: color 0.25s ease-in-out, box-shadow 0.25s ease-in-out; /* Smooth hover effect */
 }
 
+/* Hover effect for buttons */
 .controls button:hover {
     color: var(--secondary);
     box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* ================= Time Setting ================= */
+/* Styling for the time setting section */
 #timeSetting {
-    grid-column: 2;
-    grid-row: 2 / 4;
+    grid-column: 2; /* Position in the grid */
+    grid-row: 2 / 4; /* Spans rows 2 through 3 */
+    width: 50%; /* Half the width of parent */
+    min-width: 6rem; /* Minimum width for responsiveness */
+    height: 100%; /* Full height of parent */
 
-    width: 40%;
-    max-width: 400px;
     border-radius: 1rem;
-    margin: 0 0 0 auto;
+    margin: 0 0 0 auto; /* Align to the right */
+    padding-top: 0.5rem;
 
-    font-family: "Roboto Mono", monospace;
-    text-align: center;
     background-color: var(--dark);
+    text-align: center;
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding-top: 1.5rem;
-    row-gap: 0.5rem;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    font-size: 0.8rem; /* Adjust font size */
 }
 
-/* Hover Styling for Inputs */
+/* Hover effect for inputs in time setting */
 #timeSetting div input:hover {
-    color: var(--secondary);
+    color: var(--secondary); /* Change color on hover */
     transition: color 0.25s ease-in-out;
-    /* Ensure smooth transitions */
 }
 
-/* Flash Error Styling for Inputs */
+/* Error flash effect for inputs */
 .error-flash {
-    color: var(--error) !important;
-    /* Ensure flash red overrides other styles */
+    color: var(--error) !important; /* Flash red color overrides other styles */
     transition: color 0.25s ease-in-out;
 }
 
-/* ================= Time Setting Inputs ================= */
-.setStudy {
-    grid-column: 1;
-    grid-row: 1;
+/* ================= Time Setting Sections ================= */
+/* Styling for individual time setting sections */
+#timeSetting > .setStudy,
+#timeSetting > .setBreak {
+    text-align: center;
+    width: 100%; /* Full width of parent */
+    height: 50%; /* Half height of parent */
+    display: flex;
+    flex-direction: column; /* Stack text and input vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 0.5rem 0; /* Padding for spacing */
+    background: transparent; /* No background for sections */
 }
 
-.setBreak {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-/* Remove Spinner Buttons in Number Inputs */
-#minSet div input::-webkit-inner-spin-button,
-#minSet div input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Styling for Time Setting Input Container */
+/* ================= Input Containers ================= */
+/* Styling for input containers inside time setting sections */
 #minSet div {
     display: block;
-    margin: 0.5rem auto auto auto;
-    font-size: calc(1.5rem + 1vw);
-    /* Scales with viewport width */
+    margin: 0.5rem auto auto; /* Top margin with horizontal centering */
 }
 
-/* Styling for Inputs */
+/* Styling for individual inputs */
 #minSet div input {
-    all: unset;
-
+    all: unset; /* Reset all default styles */
     display: block;
-    margin: 0.5rem auto;
-    font-size: calc(1.4rem + 1vw);
-    width: 80%;
-    text-align: center;
+    margin: 0 auto; /* Center input horizontally */
+    font-size: calc(1.8rem + 1vw); /* Responsive font size */
+    width: 80%; /* Width as a percentage of parent */
+    text-align: center; /* Center text in input */
     background: none;
-    color: inherit;
-    /* Use inherited color to avoid reset conflicts */
-    transition: color 0.25s ease-in-out;
-    /* Smooth transition for hover and error */
+    color: inherit; /* Inherit parent color */
+    transition: color 0.25s ease-in-out; /* Smooth transitions */
+}
+
+/* Remove spinner buttons in number inputs */
+#minSet div input::-webkit-inner-spin-button,
+#minSet div input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove spinners */
+    margin: 0;
 }
