@@ -14,19 +14,19 @@ body {
 
 /* ================= Grid Layout ================= */
 /* Main grid layout for the application */
-#main-grid {
+#app-grid {
     display: grid;
-    grid-gap: 1rem; /* Space between grid items */
-    grid-template-columns: 1fr 1fr 1.25fr 1fr 1fr; /* Column distribution */
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr; /* Row distribution */
+    grid-gap: 0.5rem; /* Space between grid items */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; /* Column distribution */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; /* Row distribution */
     margin: 0 auto; /* Center the grid */
 }
 
 /* ================= Main Content Styling ================= */
 /* Styling for the central content section */
 #main-content {
-    grid-column: 3; /* Position in the grid */
-    grid-row: 2 / 5; /* Spans rows 2 through 4 */
+    grid-column: 5 / 7; /* Position in the grid */
+    grid-row: 3 / 6; /* Spans rows 2 through 4 */
     background-color: var(--dark);
     border-radius: 1rem;
 
@@ -42,7 +42,7 @@ body {
 
 /* Timer display */
 .timer {
-    font-size: 3rem; /* Large text for timer */
+    font-size: 1.5em; /* 2x the font size of #main-content */
 }
 
 /* ================= Controls ================= */
@@ -72,15 +72,15 @@ body {
 /* ================= Time Setting ================= */
 /* Styling for the time setting section */
 #timeSetting {
-    grid-column: 2; /* Position in the grid */
-    grid-row: 2 / 4; /* Spans rows 2 through 3 */
+    grid-column: 4; /* Position in the grid */
+    grid-row: 3/ 6; /* Spans rows 2 through 3 */
     width: 50%; /* Half the width of parent */
-    min-width: 6rem; /* Minimum width for responsiveness */
-    height: 100%; /* Full height of parent */
+    min-width: 5rem; /* Minimum width for responsiveness */
+    padding: 0.5rem;
 
     border-radius: 1rem;
-    margin: 0 0 0 auto; /* Align to the right */
-    padding-top: 0.5rem;
+    margin: auto 0 auto auto; /* Align to the right */
+
 
     background-color: var(--dark);
     text-align: center;
@@ -88,6 +88,7 @@ body {
     display: flex;
     flex-direction: column; /* Stack children vertically */
     justify-content: center; /* Center children vertically */
+    height: 80%; /* Full height of parent */
     align-items: center; /* Center children horizontally */
     font-size: 0.8rem; /* Adjust font size */
 }
@@ -115,23 +116,26 @@ body {
     flex-direction: column; /* Stack text and input vertically */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    padding: 0.5rem 0; /* Padding for spacing */
+    padding: 0.5rem 0 ; /* Padding for spacing */
     background: transparent; /* No background for sections */
 }
 
 /* ================= Input Containers ================= */
 /* Styling for input containers inside time setting sections */
 #minSet div {
-    display: block;
-    margin: 0.5rem auto auto; /* Top margin with horizontal centering */
+    display: flex;
+    margin: auto auto; /* Top margin with horizontal centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
 }
 
 /* Styling for individual inputs */
 #minSet div input {
     all: unset; /* Reset all default styles */
     display: block;
-    margin: 0 auto; /* Center input horizontally */
-    font-size: calc(1.8rem + 1vw); /* Responsive font size */
+    margin: 0; 
+    font-size: calc(1rem + 0.8vw); /* Responsive font size */
+    
     width: 80%; /* Width as a percentage of parent */
     text-align: center; /* Center text in input */
     background: none;
@@ -144,4 +148,34 @@ body {
 #minSet div input::-webkit-outer-spin-button {
     -webkit-appearance: none; /* Remove spinners */
     margin: 0;
+}
+
+/* ================= Active Time ================= */
+
+#activeTime {
+    visibility: hidden;
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    height: 100%; /* Full height of parent */
+    align-items: center; /* Center children horizontally */
+
+    width: 50%; /* Half the width of parent */
+    min-width: 6rem;
+    margin: 0 0 0 auto; /* Align to the right */
+    border-radius: 1rem;
+
+    background-color: var(--dark);
+
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem 0
+}
+
+.totalTime {
+    margin: auto;
+
 }
