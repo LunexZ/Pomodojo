@@ -1,133 +1,60 @@
 @import url('./variables.css');
 
 /* ========== Popup Styles ========== */
-
-/* Outer Popup Container */
 .popup {
-    position: fixed;
+    position: fixed; /* Stays fixed in place relative to the screen */
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: var(--error);
+    transform: translateX(-50%); /* Centers horizontally */
+    padding: 5px 15px; /* Space around content */
+    background-color: var(--error); /* Error-specific color */
     color: white;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; /* Slightly rounded edges */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     font-family: Arial, sans-serif;
-    font-size: 14px;
-    z-index: 1000;
-    width: auto;
-    max-width: 90%;
-    opacity: 0;
-    /* Start hidden */
-    animation: slideUpDown 3s ease-in-out;
-    /* Slide and fade animation */
+    font-size: 12px;
+    z-index: 1000; /* Ensures it appears above most elements */
+    max-width: 80%; /* Prevents it from getting too wide */
+    opacity: 0; /* Starts hidden */
+    animation: slideUpDown 3s ease-in-out; /* Smooth entry and exit */
 }
 
-/* Inner Popup Content for Flexbox Layout */
 .popup-content {
-    display: flex;
-    align-items: center;
-    /* Vertically center items */
-    gap: 10px;
-    /* Space between icon and text */
+    display: flex; /* Aligns icon and message side by side */
+    align-items: center; /* Vertically centers content */
+    gap: 8px; /* Space between icon and text */
 }
 
-/* Popup Icon */
 .popup-error {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    /* Prevent icon from shrinking */
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0; /* Prevents the icon from resizing */
 }
 
-/* Popup Message */
 .popup-message {
-    flex: 1;
-    /* Allow message to take up remaining space */
-    text-align: left;
-    /* Align text to the left */
-    white-space: nowrap;
-    /* Prevent text wrapping */
-    overflow: hidden;
-    /* Prevent overflowing text */
-    text-overflow: ellipsis;
-    /* Add ellipsis for long text */
+    flex: 1; /* Message takes up remaining space */
+    white-space: nowrap; /* Prevents wrapping */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Adds "..." for long text */
 }
 
-/* Slide-Up-Down Animation */
+/* Animation for showing and hiding the popup */
 @keyframes slideUpDown {
     0% {
         opacity: 0;
-        transform: translateX(-50%) translateY(100px);
-        /* Start off the screen */
+        transform: translateX(-50%) translateY(80px); /* Starts below view */
     }
-
-    10% {
+    10%, 90% {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
-        /* Fully visible at normal position */
+        transform: translateX(-50%) translateY(0); /* Moves into position */
     }
-
-    90% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-        /* Stay fully visible */
-    }
-
     100% {
         opacity: 0;
-        transform: translateX(-50%) translateY(100px);
-        /* Slide back down */
+        transform: translateX(-50%) translateY(80px); /* Slides back down */
     }
 }
 
-/* Hidden by Default */
-.hidden {
-    display: none;
-}
-
-
-/* Popup Icon */
 .popup-icon {
-    width: 24px;
-    height: 24px;
-}
-
-/* Fade Animation */
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+    width: 18px;
+    height: 18px;
 }

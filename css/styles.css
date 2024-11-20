@@ -3,7 +3,6 @@
 @import url('./variables.css');
 
 /* ================= Global Styles ================= */
-/* General styles for the body */
 body {
     background: var(--primary);
     color: var(--text);
@@ -13,170 +12,155 @@ body {
 }
 
 /* ================= Grid Layout ================= */
-/* Main grid layout for the application */
 #app-grid {
     display: grid;
-    grid-gap: 0.5rem; /* Space between grid items */
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; /* Column distribution */
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; /* Row distribution */
-    margin: 0 auto; /* Center the grid */
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    margin: 0 auto;
 }
 
-/* ================= Main Content Styling ================= */
-/* Styling for the central content section */
+/* ================= Main Content ================= */
 #main-content {
-    grid-column: 5 / 7; /* Position in the grid */
-    grid-row: 3 / 6; /* Spans rows 2 through 4 */
+    grid-column: 5 / 7;
+    grid-row: 3 / 6;
     background-color: var(--dark);
     border-radius: 1rem;
-
-    width: 100%; /* Full width of parent */
-    min-width: 12rem; /* Minimum width for responsiveness */
-    height: 100%; /* Full height of parent */
-
+    width: 100%;
+    min-width: 12rem;
+    height: 100%;
     margin: auto;
-    padding: 2rem 0 4rem; /* Padding for top and bottom */
-    text-align: center; /* Center text */
-    font-size: 1.3rem; /* Adjust font size for scaling */
-
+    padding: 1.5rem 0 3rem;
+    text-align: center;
+    font-size: 1.3rem;
 }
 
-/* Timer display */
 .timer {
-    font-size: 1.5em; /* 2x the font size of #main-content */
+    font-size: 2em;
+}
+
+.title {
+    color: var(--active);
+    font-size: 1.7em;
+}
+
+.modeHeader {
+    font-style: italic;
+    font-size: 0.7em;
 }
 
 /* ================= Controls ================= */
-/* Styling for control buttons */
 .controls {
+    padding-top: 1em;
+    margin-top: 0;
     display: flex;
-    justify-content: center; /* Center buttons horizontally */
+    justify-content: center;
 }
 
-/* Individual button styles */
 .controls button {
-    background-color: var(--primary);
+    background-color: transparent;
     color: white;
+    font-size: 0.5em;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    margin: 0; /* Remove default margin */
-    transition: color 0.25s ease-in-out, box-shadow 0.25s ease-in-out; /* Smooth hover effect */
+    margin: 0;
+    transition: color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 
-/* Hover effect for buttons */
 .controls button:hover {
     color: var(--secondary);
-    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.05);
 }
 
 /* ================= Time Setting ================= */
-/* Styling for the time setting section */
 #timeSetting {
-    grid-column: 4; /* Position in the grid */
-    grid-row: 3/ 6; /* Spans rows 2 through 3 */
-    width: 50%; /* Half the width of parent */
-    min-width: 5rem; /* Minimum width for responsiveness */
+    grid-column: 4;
+    grid-row: 3 / 6;
+    width: 50%;
+    min-width: 5rem;
     padding: 0.5rem;
-
     border-radius: 1rem;
-    margin: auto 0 auto auto; /* Align to the right */
-
-
+    margin: auto 0 auto auto;
     background-color: var(--dark);
     text-align: center;
-
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children vertically */
-    height: 80%; /* Full height of parent */
-    align-items: center; /* Center children horizontally */
-    font-size: 0.8rem; /* Adjust font size */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    font-size: 0.8rem;
 }
 
-/* Hover effect for inputs in time setting */
 #timeSetting div input:hover {
-    color: var(--secondary); /* Change color on hover */
+    color: var(--secondary);
     transition: color 0.25s ease-in-out;
 }
 
-/* Error flash effect for inputs */
 .error-flash {
-    color: var(--error) !important; /* Flash red color overrides other styles */
+    color: var(--error) !important;
     transition: color 0.25s ease-in-out;
 }
 
-/* ================= Time Setting Sections ================= */
-/* Styling for individual time setting sections */
+/* Time Setting Sections */
 #timeSetting > .setStudy,
 #timeSetting > .setBreak {
     text-align: center;
-    width: 100%; /* Full width of parent */
-    height: 50%; /* Half height of parent */
+    width: 100%;
+    height: 50%;
     display: flex;
-    flex-direction: column; /* Stack text and input vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    padding: 0.5rem 0 ; /* Padding for spacing */
-    background: transparent; /* No background for sections */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    background: transparent;
 }
 
-/* ================= Input Containers ================= */
-/* Styling for input containers inside time setting sections */
+/* Input Containers */
 #minSet div {
     display: flex;
-    margin: auto auto; /* Top margin with horizontal centering */
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Styling for individual inputs */
 #minSet div input {
-    all: unset; /* Reset all default styles */
+    all: unset;
     display: block;
-    margin: 0; 
-    font-size: calc(1rem + 0.8vw); /* Responsive font size */
-    
-    width: 80%; /* Width as a percentage of parent */
-    text-align: center; /* Center text in input */
+    margin: 0;
+    font-size: calc(1rem + 0.8vw);
+    width: 80%;
+    text-align: center;
     background: none;
-    color: inherit; /* Inherit parent color */
-    transition: color 0.25s ease-in-out; /* Smooth transitions */
+    color: inherit;
+    transition: color 0.25s ease-in-out;
 }
 
-/* Remove spinner buttons in number inputs */
 #minSet div input::-webkit-inner-spin-button,
 #minSet div input::-webkit-outer-spin-button {
-    -webkit-appearance: none; /* Remove spinners */
+    -webkit-appearance: none;
     margin: 0;
 }
 
 /* ================= Active Time ================= */
-
 #activeTime {
     visibility: hidden;
     grid-column: 5 / 7;
     grid-row: 5 / 7;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: center; /* Center children vertically */
-    height: 100%; /* Full height of parent */
-    align-items: center; /* Center children horizontally */
-
-   
-
-    margin: 0 0 0 auto; /* Align to the right */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 0 0 auto;
     border-radius: 1rem;
-
     background-color: var(--dark);
-
     font-size: 0.8rem;
     text-align: center;
-    padding: 0.5rem 0
+    padding: 0.5rem 0;
 }
 
 .totalTime {
     margin: auto;
-
 }
