@@ -14,3 +14,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* animations */
+
+@keyframes circleToBarToFull {
+    0% {
+        clip-path: circle(0% at 0% 0%); /* Start as a small circle in the top-left */
+    }
+    100% {
+        clip-path: circle(120% at 0% 0%); /* Expand the circle to about half the div */
+
+}
