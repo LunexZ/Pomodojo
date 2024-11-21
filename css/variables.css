@@ -7,6 +7,9 @@
     --secondary: #ffde68;
     --breakbar: #82f9f3;
     --error: #ef5d5d;
+
+    --timer-color: var(--text);
+    --timer-glow: none;
 }
 
 /* Reset Styles */

@@ -123,6 +123,10 @@ class PomodoroTimer {
     startTimer() {
         this.isPlaying = true;
         this.startBtn.textContent = "Pause";
+
+        this.timerEl.style.setProperty('--timer-color', 'white');
+        this.timerEl.style.setProperty('--timer-glow', 'rgba(255,255,255,0.2) 0px 0px 25px'); // Add glow effect
+
         this.interval = setInterval(() => {
             if (this.secondsRemaining > 0) {
                 this.secondsRemaining--;
@@ -137,6 +141,8 @@ class PomodoroTimer {
         clearInterval(this.interval);
         this.isPlaying = false;
         this.startBtn.textContent = "Start";
+        this.timerEl.style.setProperty('--timer-color', 'gray');
+        this.timerEl.style.setProperty('--timer-glow', 'none'); // Remove glow effect
     }
 
     finishInterval() {

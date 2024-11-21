@@ -37,6 +37,10 @@ body {
 
 .timer {
     font-size: 2em;
+    transition: color 0.4s ease-in-out;
+    color: var(--timer-color);
+    text-shadow: var(--timer-glow); /* Apply the text glow effect */
+    transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transitions */
 }
 
 .title {
