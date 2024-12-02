@@ -19,3 +19,29 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+// Graceful shutdown function
+const shutdown = async () => {
+  console.log('\nGracefully shutting down...');
+
+  try {
+    // Close MongoDB connection
+    console.log('Closing database connection...');
+    await mongoose.connection.close();
+    console.log('Database connection closed.');
+
+    // Close the server
+    console.log('Closing server...');
+    server.close(() => {
+      console.log('Server closed.');
+      process.exit(0); // Exit process successfully
+    });
+  } catch (err) {
+    console.error('Error during shutdown:', err);
+    process.exit(1); // Exit process with error
+  }
+};
+
+// Handle termination signals
+process.on('SIGINT', shutdown); // Handle Ctrl+C
+process.on('SIGTERM', shutdown); // Handle termination signals
