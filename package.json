@@ -16,6 +16,9 @@
   "author": "Yaohui (Joey) Zhang JZHANG1565@GMAIL.COM https://www.linkedin.com/in/joeyzhang1576/",
   "license": "GNU General Public License v3.0",
   "dependencies": {
-    "express": "^4.21.1"
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3",
+    "nodemon": "^3.1.7"
   }
 }
