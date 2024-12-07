@@ -6,11 +6,12 @@ require('dotenv').config(); // Load environment variables
 const app = express();
 const port = process.env.PORT || 3000;
 
+const authRoutes = require('./routes/auth');
 
 // Check environment variable is present
 if (!process.env.DB_URI) {
-  console.error('Error: DB_URI is not defined in the environment variables.');
-  process.exit(1);
+    console.error('Error: DB_URI is not defined in the environment variables.');
+    process.exit(1);
 }
 
 // Middleware to serve static files
@@ -20,14 +21,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); // Views directory
 
+// Use authentication routes
+app.use('/auth', authRoutes); // Mount auth routes on `/auth`
+
 // Route to render the index page
 app.get('/', (req, res) => {
     res.render('index', { title: 'Pomodojo' });
 });
 
+// Route to render the login page
+app.get('/login', (req, res) => {
+    res.render('login', { title: 'Login - Pomodojo' });
+});
+
 // Health check route
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK' });
+    res.status(200).json({ status: 'OK' });
 });
 
 // MongoDB connection string from environment variable
