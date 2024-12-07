@@ -192,3 +192,86 @@ header button#login-button {
 .totalTime {
     margin: auto;
 }
+
+/* ================= Login ================= */
+.container {
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-container {
+    background-color: none;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input {
+    background-color: #1e1e1e;
+    color: #ccc;
+
+}
+
+button {
+    background-color: #444;
+    color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.social-login {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.separator {
+    text-align: center;
+    margin: 10px 0;
+    color: #777;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.forgot-password {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    color: #777;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: #ccc;
+    text-decoration: underline;
+}
