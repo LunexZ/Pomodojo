@@ -1,0 +1,62 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+
+    <main id="app-grid">
+        <section id="main-content">
+            <h1 class="title">Pomodojo</h1>
+
+            <h3 class="modeHeader"> welcome! </h3>
+
+            <div class="timer">00:25 </div>
+
+            <div class="controls">
+                <button type="button" id="start-button">start</button>
+                <button type="button" id="skip-button">skip</button>
+            </div>
+        </section>
+
+        <section id="timeSetting">
+            <div class="setStudy" id="minSet">
+                min/study
+                <div>
+                    <input type="number" value="25" maxlength="2" min="0" placeholder="--" id="studyInput"
+                        name="studyInput" />
+                </div>
+            </div>
+            <div class="setBreak" id="minSet">
+                min/break
+                <div>
+                    <input type="number" value="5" maxlength="2" min="0" placeholder="--" id="breakInput"
+                        name="breakInput" />
+                </div>
+            </div>
+        </section>
+
+        <section id="activeTime">
+            active
+            <div class="totalTime">
+                --
+            </div>
+        </section>
+
+        <div id="popup-template" class="popup hidden">
+            <div class="popup-content">
+                <svg class="popup-error" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-alert-circle">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span class="popup-message"></span>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>
