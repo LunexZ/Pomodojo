@@ -1,0 +1,25 @@
+{
+  "name": "pomodojov2",
+  "version": "1.0.0",
+  "description": "**Pomodojov2** is a modern, customizable Pomodoro timer application designed to enhance your productivity with style. This refined version of my beginner project features clean, modular code, smooth animations, error handling, and a responsive design.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "productivity",
+    "time management"
+  ],
+  "author": "Yaohui (Joey) Zhang JZHANG1565@GMAIL.COM https://www.linkedin.com/in/joeyzhang1576/",
+  "license": "GNU General Public License v3.0",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3",
+    "nodemon": "^3.1.7"
+  }
+}

@@ -1,0 +1,41 @@
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h2>register</h2>
+                <form>
+                    <input type="text" placeholder="username">
+                    <input type="email" placeholder="email">
+                    <input type="email" placeholder="verify email">
+                    <input type="password" placeholder="password">
+                    <input type="password" placeholder="verify password">
+                    <button type="submit">sign up</button>
+                </form>
+            </div>
+            <div class="form-container">
+                <h2>login</h2>
+                <form>
+                    <div class="social-login">
+                        <button>Google</button>
+                        <button>Github</button>
+                    </div>
+                    <div class="separator">or</div>
+                    <input type="email" placeholder="email">
+                    <input type="password" placeholder="password">
+                    <label>
+                        <input type="checkbox"> remember me
+                    </label>
+                    <button type="submit">sign in</button>
+                </form>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

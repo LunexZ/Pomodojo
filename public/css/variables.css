@@ -1,0 +1,23 @@
+/* variables.css */
+:root {
+    --primary: #2e2e2e;
+    --dark: #2a2a2a;
+    --text: #aeaeae60;
+    --active: white;
+    --secondary: #ffde68;
+    --breakbar: #82f9f3;
+    --error: #ef5d5d;
+
+    --timer-color: var(--text);
+    --timer-glow: none;
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* animations */
