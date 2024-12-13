@@ -16,12 +16,14 @@ class PomodoroTimer {
         this.skipBtn = document.getElementById("skip-button");
         this.studyInput = document.getElementById("studyInput");
         this.breakInput = document.getElementById("breakInput");
+    
 
         // Event Listeners
         this.startBtn.addEventListener("click", () => this.toggleTimer());
         this.skipBtn.addEventListener("click", () => this.skip());
         this.studyInput.addEventListener("change", () => this.updateDuration("study"));
         this.breakInput.addEventListener("change", () => this.updateDuration("break"));
+
 
         // Initialize timer display
         this.updateTimerDisplay();
