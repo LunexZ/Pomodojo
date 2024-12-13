@@ -1,6 +1,9 @@
 @import url('./variables.css');
 
 /* ========== Popup Styles ========== */
+.hidden {
+    display: none;
+}
 .popup {
     position: fixed; /* Stays fixed in place relative to the screen */
     bottom: 20px;
